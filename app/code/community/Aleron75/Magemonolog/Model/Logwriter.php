@@ -64,7 +64,6 @@ class Aleron75_Magemonolog_Model_Logwriter
         $level = $this->_levelMap[$event['priority']];
         $message = $event['message'];
         $this->_logger->addRecord($level, $message);
-        Zend_Debug::dump($event);
     }
 
     /**
