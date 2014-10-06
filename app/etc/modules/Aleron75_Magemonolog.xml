@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Aleron75_Magemonolog>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Aleron75_Magemonolog>
+    </modules>
+</config>

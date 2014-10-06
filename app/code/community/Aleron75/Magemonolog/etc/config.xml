@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Aleron75_Magemonolog>
+            <version>0.1.0</version>
+        </Aleron75_Magemonolog>
+    </modules>
+    <global>
+        <models>
+            <aleron75_magemonolog>
+                <class>Aleron75_Magemonolog_Model</class>
+            </aleron75_magemonolog>
+        </models>
+        <helpers>
+            <aleron75_magemonolog>
+                <class>Aleron75_Magemonolog_Helper</class>
+            </aleron75_magemonolog>
+        </helpers>
+        <log>
+            <core>
+                <writer_model>Aleron75_Magemonolog_Model_Logwriter</writer_model>
+            </core>
+        </log>
+    </global>
+</config>
