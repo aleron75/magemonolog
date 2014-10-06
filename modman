@@ -1,0 +1,3 @@
+# Aleron75_Magemonolog definition
+app/etc/modules/*.xml                   app/etc/modules/
+app/code/community/Aleron75/*           app/code/community/Aleron75/
