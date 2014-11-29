@@ -24,27 +24,27 @@
     </global>
     <default>
         <magemonolog>
-            <logwriter>
-                <class>NativeMailHandler</class>
-                <params>
-                    <to>aleron75@gmail.com</to>
-                    <subject>Log</subject>
-                    <from>aleron75@gmail.com</from>
-                    <level>ERROR</level>
-                    <bubble>true</bubble>
-                    <maxColumnWidth>70</maxColumnWidth>
-                </params>
-            </logwriter>
             <!--<logwriter>-->
-                <!--<class>StreamHandler</class>-->
+                <!--<class>NativeMailHandler</class>-->
                 <!--<params>-->
-                    <!--<stream>magemonolog.log</stream>-->
+                    <!--<to>aleron75@gmail.com</to>-->
+                    <!--<subject>Log</subject>-->
+                    <!--<from>aleron75@gmail.com</from>-->
                     <!--<level>ERROR</level>-->
                     <!--<bubble>true</bubble>-->
-                    <!--<filePermission>null</filePermission>-->
-                    <!--<useLocking>false</useLocking>-->
+                    <!--<maxColumnWidth>70</maxColumnWidth>-->
                 <!--</params>-->
             <!--</logwriter>-->
+            <logwriter>
+                <class>StreamHandler</class>
+                <params>
+                    <stream>magemonolog.log</stream>
+                    <level>ERROR</level>
+                    <bubble>true</bubble>
+                    <filePermission>null</filePermission>
+                    <useLocking>false</useLocking>
+                </params>
+            </logwriter>
         </magemonolog>
     </default>
 </config>

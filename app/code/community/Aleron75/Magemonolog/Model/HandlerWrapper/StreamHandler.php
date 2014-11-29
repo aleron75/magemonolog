@@ -3,10 +3,8 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 class Aleron75_Magemonolog_Model_HandlerWrapper_StreamHandler
-    implements Aleron75_Magemonolog_Model_HandlerWrapper_HandlerInterface
+    extends Aleron75_Magemonolog_Model_HandlerWrapper_AbstractHandler
 {
-    protected $_handler = null;
-
     public function __construct(array $args)
     {
         $this->_validateArgs($args);
@@ -21,10 +19,7 @@ class Aleron75_Magemonolog_Model_HandlerWrapper_StreamHandler
 
     protected function _validateArgs(array &$args)
     {
-        if (!is_array($args))
-        {
-            $args = array();
-        }
+        parent::_validateArgs($args);
 
         // Stream
         $file = Mage::getStoreConfig('dev/log/file');
@@ -35,34 +30,6 @@ class Aleron75_Magemonolog_Model_HandlerWrapper_StreamHandler
         $logDir  = Mage::getBaseDir('var') . DS . 'log';
         $logFile = $logDir . DS . $file;
         $args['stream'] = $logFile;
-
-        // Level
-        $level = Logger::DEBUG;
-        if (isset($args['level']))
-        {
-            if (is_numeric($args['level']))
-            {
-                $level = filter_var($args['level'], FILTER_VALIDATE_INT);
-            }
-            else
-            {
-                $level = constant('Monolog\Logger::'. $args['level']);
-            }
-
-            if (is_null($level))
-            {
-                $level = Logger::DEBUG;
-            }
-        }
-        $args['level'] = $level;
-
-        // Bubble
-        $bubble = true;
-        if (isset($args['bubble']))
-        {
-            $bubble = filter_var($args['bubble'], FILTER_VALIDATE_BOOLEAN);
-        }
-        $args['bubble'] = $bubble;
 
         // File Permission
         $filePermission = null;
@@ -79,10 +46,5 @@ class Aleron75_Magemonolog_Model_HandlerWrapper_StreamHandler
             $useLocking = filter_var($args['useLocking'], FILTER_VALIDATE_BOOLEAN);
         }
         $args['useLocking'] = $useLocking;
-    }
-
-    public function getHandler()
-    {
-        return $this->_handler;
     }
 }
