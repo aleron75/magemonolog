@@ -1,6 +1,5 @@
 <?php
 use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 class Aleron75_Magemonolog_Model_Logwriter
     extends Zend_Log_Writer_Abstract
@@ -33,7 +32,24 @@ class Aleron75_Magemonolog_Model_Logwriter
         $this->__initLevelMapping();
 
         $this->_logger = new Logger('monolog');
-        $this->_logger->pushHandler(new StreamHandler($logFile));
+
+        $handlerConfig = Mage::getStoreConfig('magemonolog/logwriter');
+
+        if (!is_null($handlerConfig) && is_array($handlerConfig))
+        {
+            $args = array();
+            if (array_key_exists('params', $handlerConfig))
+            {
+                $args = $handlerConfig['params'];
+            }
+
+            if (array_key_exists('class', $handlerConfig))
+            {
+                $handlerClassName = trim($handlerConfig['class']);
+                $handlerWrapper = Mage::getModel('aleron75_magemonolog/handlerWrapper_'.$handlerClassName, $args);
+                $this->_logger->pushHandler($handlerWrapper->getHandler());
+            }
+        }
     }
 
     /**
