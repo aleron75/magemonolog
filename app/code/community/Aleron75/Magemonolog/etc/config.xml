@@ -26,7 +26,7 @@
         <magemonolog>
             <handlers>
                 <StreamHandler>
-                    <active>0</active>
+                    <active>1</active>
                     <params>
                         <stream>magemonolog.log</stream>
                         <level>DEBUG</level>
@@ -47,7 +47,7 @@
                     </params>
                 </NativeMailHandler>
                 <NewRelicHandler>
-                    <active>1</active>
+                    <active>0</active>
                     <params>
                         <level>ERROR</level>
                         <bubble>true</bubble>
