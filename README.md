@@ -30,10 +30,8 @@ Install modman Module Manager: https://github.com/colinmollenhour/modman
 After having installed modman on your system, you can clone this module on your
 Magento base directory by typing the following command:
 
-`
-$ modman init
-$ modman clone git@github.com:aleron75/magemonolog.git
-`
+    $ modman init
+    $ modman clone git@github.com:aleron75/magemonolog.git
 
 **Composer**
 
@@ -43,43 +41,36 @@ Install Magento Composer: https://github.com/magento-hackathon/magento-composer-
 
 Add the dependency to your `composer.json`:
 
-`
-{
-  ...
-  "require": {
-    ...
-    "aleron75/magemonolog": "dev-master",
-    ...
-  },
-  "repositories": [
-    ...
     {
-      "type": "vcs",
-      "url":  "git@github.com:aleron75/magemonolog.git"
-    },
-    ...
-  ],
-  ...
-  "extra": {
-    "magento-root-dir": "<magento_installation_dir>/"
-  }
-  ...
-}
-`
+      ...
+      "require": {
+        ...
+        "aleron75/magemonolog": "dev-master",
+        ...
+      },
+      "repositories": [
+        ...
+        {
+          "type": "vcs",
+          "url":  "git@github.com:aleron75/magemonolog.git"
+        },
+        ...
+      ],
+      ...
+      "extra": {
+        "magento-root-dir": "<magento_installation_dir>/"
+      }
+      ...
+    }
 
 Then run the following command from the directory where your `composer.json`
 file is contained:
 
-`
-$ php composer.phar install
-`
+    $ php composer.phar install
 
 or
 
-`
-$ composer install
-`
-
+    $ composer install
 
 **Common tasks**
 
@@ -95,17 +86,15 @@ with Monolog's StreamHandler.
 
 This is obtained through the following config node in `config.xml`:
 
-<pre>
-<config>
-    <global>
-        <log>
-            <core>
-                <writer_model>Aleron75_Magemonolog_Model_Logwriter</writer_model>
-            </core>
-        </log>
-    </global>
-</config>
-</pre>
+    <config>
+        <global>
+            <log>
+                <core>
+                    <writer_model>Aleron75_Magemonolog_Model_Logwriter</writer_model>
+                </core>
+            </log>
+        </global>
+    </config>
 
 which instructs Magento to use a custom log writer class when logging via the
 `Mage::log()` native static function.
@@ -116,37 +105,35 @@ Monolog and allows to use Monolog's Handlers.
 Monolog's Handlers are configured in the `config.xml` through the following
 config node:
 
-<pre>
-<config>
-    <default>
-        <magemonolog>
-            <handlers>
-                <StreamHandler>
-                    <active>1</active>
-                    <params>
-                        <stream>magemonolog.log</stream>
-                        <level>DEBUG</level>
-                        <bubble>true</bubble>
-                        <filePermission>null</filePermission>
-                        <useLocking>false</useLocking>
-                    </params>
-                </StreamHandler>
-                <NativeMailHandler>
-                    <active>0</active>
-                    <params>
-                        <to>dummy@example.com</to>
-                        <subject>Log</subject>
-                        <from>dummy@example.com</from>
-                        <level>ERROR</level>
-                        <bubble>true</bubble>
-                        <maxColumnWidth>70</maxColumnWidth>
-                    </params>
-                </NativeMailHandler>
-            </handlers>
-        </magemonolog>
-    </default>
-</config>
-</pre>
+    <config>
+        <default>
+            <magemonolog>
+                <handlers>
+                    <StreamHandler>
+                        <active>1</active>
+                        <params>
+                            <stream>magemonolog.log</stream>
+                            <level>DEBUG</level>
+                            <bubble>true</bubble>
+                            <filePermission>null</filePermission>
+                            <useLocking>false</useLocking>
+                        </params>
+                    </StreamHandler>
+                    <NativeMailHandler>
+                        <active>0</active>
+                        <params>
+                            <to>dummy@example.com</to>
+                            <subject>Log</subject>
+                            <from>dummy@example.com</from>
+                            <level>ERROR</level>
+                            <bubble>true</bubble>
+                            <maxColumnWidth>70</maxColumnWidth>
+                        </params>
+                    </NativeMailHandler>
+                </handlers>
+            </magemonolog>
+        </default>
+    </config>
 
 It is assumed you know Monolog's Handlers to understand the meaning of `params`
 node.
