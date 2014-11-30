@@ -1,6 +1,11 @@
 magemonolog
 ===========
 
+Facts
+-----
+Version: 0.2.1
+Developed (and tested) on Magento CE v 1.8.1.0
+
 Introduction
 ------------
 
@@ -9,8 +14,8 @@ Monolog as logging library.
 
 The following Monolog's Handlers are supported at the moment:
 
-* StreamHandler: writes to file
-* NativeMailHandler: sends each log entry via email
+* `StreamHandler` - writes to file
+* `NativeMailHandler` - sends each log entry via email
 
 Installation
 ------------
@@ -138,6 +143,6 @@ config node:
 It is assumed you know Monolog's Handlers to understand the meaning of `params`
 node.
 
-Multiple Log Handlers can be activated at a time with different log filter level;
-this way, for example, you can log any message into a file and only log
-via e-mail serious errors.
+Multiple Log Handlers can be activated at the same time with different log
+filter level; this way, for example, it is possible to log any message into a
+file and only serious errors via e-mail.
