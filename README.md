@@ -16,6 +16,7 @@ The following Monolog's Handlers are supported at the moment:
 
 * `StreamHandler` - writes to file
 * `NativeMailHandler` - sends each log entry via email
+* `NewRelicHandler` - logs in NewRelic app
 
 Installation
 ------------
@@ -135,6 +136,14 @@ config node:
                             <maxColumnWidth>70</maxColumnWidth>
                         </params>
                     </NativeMailHandler>
+                    <NewRelicHandler>
+                        <active>0</active>
+                        <params>
+                            <level>ERROR</level>
+                            <bubble>true</bubble>
+                            <appname>***your app name here***</appname>
+                        </params>
+                    </NewRelicHandler>
                 </handlers>
             </magemonolog>
         </default>
