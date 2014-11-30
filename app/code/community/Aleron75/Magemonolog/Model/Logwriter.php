@@ -33,20 +33,27 @@ class Aleron75_Magemonolog_Model_Logwriter
 
         $this->_logger = new Logger('monolog');
 
-        $handlerConfig = Mage::getStoreConfig('magemonolog/logwriter');
+        $handlers = Mage::getStoreConfig('magemonolog/handlers');
 
-        if (!is_null($handlerConfig) && is_array($handlerConfig))
+        if (!is_null($handlers) && is_array($handlers))
         {
-            $args = array();
-            if (array_key_exists('params', $handlerConfig))
+            foreach ($handlers as $handlerModel => $handlerValues)
             {
-                $args = $handlerConfig['params'];
-            }
+                $isActive = Mage::getStoreConfigFlag('magemonolog/handlers/'.$handlerModel.'/active');
+                if (!$isActive)
+                {
+                    print_r($handlerModel.' is NOT active').PHP_EOL;
+                    continue;
+                }
+                print_r($handlerModel.' is active').PHP_EOL;
 
-            if (array_key_exists('class', $handlerConfig))
-            {
-                $handlerClassName = trim($handlerConfig['class']);
-                $handlerWrapper = Mage::getModel('aleron75_magemonolog/handlerWrapper_'.$handlerClassName, $args);
+                $args = array();
+                if (array_key_exists('params', $handlerValues))
+                {
+                    $args = $handlerValues['params'];
+                }
+
+                $handlerWrapper = Mage::getModel('aleron75_magemonolog/handlerWrapper_'.$handlerModel, $args);
                 $this->_logger->pushHandler($handlerWrapper->getHandler());
             }
         }

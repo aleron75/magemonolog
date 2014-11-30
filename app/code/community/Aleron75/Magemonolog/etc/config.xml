@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Aleron75_Magemonolog>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </Aleron75_Magemonolog>
     </modules>
     <global>
@@ -24,27 +24,29 @@
     </global>
     <default>
         <magemonolog>
-            <!--<logwriter>-->
-                <!--<class>NativeMailHandler</class>-->
-                <!--<params>-->
-                    <!--<to>aleron75@gmail.com</to>-->
-                    <!--<subject>Log</subject>-->
-                    <!--<from>aleron75@gmail.com</from>-->
-                    <!--<level>ERROR</level>-->
-                    <!--<bubble>true</bubble>-->
-                    <!--<maxColumnWidth>70</maxColumnWidth>-->
-                <!--</params>-->
-            <!--</logwriter>-->
-            <logwriter>
-                <class>StreamHandler</class>
-                <params>
-                    <stream>magemonolog.log</stream>
-                    <level>ERROR</level>
-                    <bubble>true</bubble>
-                    <filePermission>null</filePermission>
-                    <useLocking>false</useLocking>
-                </params>
-            </logwriter>
+            <handlers>
+                <StreamHandler>
+                    <active>1</active>
+                    <params>
+                        <stream>magemonolog.log</stream>
+                        <level>DEBUG</level>
+                        <bubble>true</bubble>
+                        <filePermission>null</filePermission>
+                        <useLocking>false</useLocking>
+                    </params>
+                </StreamHandler>
+                <NativeMailHandler>
+                    <active>true</active>
+                    <params>
+                        <to>aleron75@gmail.com</to>
+                        <subject>Log</subject>
+                        <from>aleron75@gmail.com</from>
+                        <level>ERROR</level>
+                        <bubble>true</bubble>
+                        <maxColumnWidth>70</maxColumnWidth>
+                    </params>
+                </NativeMailHandler>
+            </handlers>
         </magemonolog>
     </default>
 </config>
