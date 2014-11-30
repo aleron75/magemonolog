@@ -23,7 +23,7 @@ class Aleron75_Magemonolog_Model_HandlerWrapper_NativeMailHandler
         parent::_validateArgs($args);
 
         // To
-        $args['to'] = trim($args['to']);
+        $args['to'] = array_map('trim', explode(',', $args['to']));
 
         // Subject
         $args['subject'] = trim($args['subject']);

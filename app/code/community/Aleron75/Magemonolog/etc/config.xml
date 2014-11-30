@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Aleron75_Magemonolog>
-            <version>0.2.0</version>
+            <version>0.2.1</version>
         </Aleron75_Magemonolog>
     </modules>
     <global>
@@ -36,11 +36,11 @@
                     </params>
                 </StreamHandler>
                 <NativeMailHandler>
-                    <active>true</active>
+                    <active>1</active>
                     <params>
-                        <to>aleron75@gmail.com</to>
+                        <to>dummy@example.com</to>
                         <subject>Log</subject>
-                        <from>aleron75@gmail.com</from>
+                        <from>dummy@example.com</from>
                         <level>ERROR</level>
                         <bubble>true</bubble>
                         <maxColumnWidth>70</maxColumnWidth>
