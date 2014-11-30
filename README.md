@@ -95,7 +95,7 @@ with Monolog's StreamHandler.
 
 This is obtained through the following config node in `config.xml`:
 
-`
+<pre>
 <config>
     <global>
         <log>
@@ -105,7 +105,7 @@ This is obtained through the following config node in `config.xml`:
         </log>
     </global>
 </config>
-`
+</pre>
 
 which instructs Magento to use a custom log writer class when logging via the
 `Mage::log()` native static function.
@@ -116,7 +116,7 @@ Monolog and allows to use Monolog's Handlers.
 Monolog's Handlers are configured in the `config.xml` through the following
 config node:
 
-`
+<pre>
 <config>
     <default>
         <magemonolog>
@@ -146,7 +146,7 @@ config node:
         </magemonolog>
     </default>
 </config>
-`
+</pre>
 
 It is assumed you know Monolog's Handlers to understand the meaning of `params`
 node.
