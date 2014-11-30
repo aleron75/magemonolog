@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Aleron75_Magemonolog>
-            <version>0.2.1</version>
+            <version>0.2.2</version>
         </Aleron75_Magemonolog>
     </modules>
     <global>
@@ -26,7 +26,7 @@
         <magemonolog>
             <handlers>
                 <StreamHandler>
-                    <active>1</active>
+                    <active>0</active>
                     <params>
                         <stream>magemonolog.log</stream>
                         <level>DEBUG</level>
@@ -46,6 +46,14 @@
                         <maxColumnWidth>70</maxColumnWidth>
                     </params>
                 </NativeMailHandler>
+                <NewRelicHandler>
+                    <active>1</active>
+                    <params>
+                        <level>ERROR</level>
+                        <bubble>true</bubble>
+                        <appname>***your app name here***</appname>
+                    </params>
+                </NewRelicHandler>
             </handlers>
         </magemonolog>
     </default>

@@ -3,7 +3,7 @@ magemonolog
 
 Facts
 -----
-Version: 0.2.1
+Version: 0.2.2
 Developed (and tested) on Magento CE v 1.8.1.0
 
 Introduction
