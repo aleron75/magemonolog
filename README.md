@@ -146,3 +146,9 @@ node.
 Multiple Log Handlers can be activated at the same time with different log
 filter level; this way, for example, it is possible to log any message into a
 file and only serious errors via e-mail.
+
+Closing words
+-------------
+Any feedback is appreciated.
+
+This extension is published under the [Open Software License (OSL 3.0)](http://opensource.org/licenses/OSL-3.0).
