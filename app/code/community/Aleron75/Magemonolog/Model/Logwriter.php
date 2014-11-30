@@ -42,10 +42,8 @@ class Aleron75_Magemonolog_Model_Logwriter
                 $isActive = Mage::getStoreConfigFlag('magemonolog/handlers/'.$handlerModel.'/active');
                 if (!$isActive)
                 {
-                    print_r($handlerModel.' is NOT active').PHP_EOL;
                     continue;
                 }
-                print_r($handlerModel.' is active').PHP_EOL;
 
                 $args = array();
                 if (array_key_exists('params', $handlerValues))
