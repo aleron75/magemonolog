@@ -72,11 +72,11 @@ Add the dependency to your `composer.json`:
 Then run the following command from the directory where your `composer.json`
 file is contained:
 
-    $ php composer.phar install
+    $ php composer.phar update aleron75/magemonolog
 
 or
 
-    $ composer install
+    $ composer update aleron75/magemonolog
 
 **Common tasks**
 
