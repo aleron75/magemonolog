@@ -45,38 +45,13 @@ Install composer: http://getcomposer.org/download/
 
 Install Magento Composer: https://github.com/magento-hackathon/magento-composer-installer
 
-Add the dependency to your `composer.json`:
+Type the following command:
 
-    {
-      ...
-      "require": {
-        ...
-        "aleron75/magemonolog": "dev-master",
-        ...
-      },
-      "repositories": [
-        ...
-        {
-          "type": "vcs",
-          "url":  "git@github.com:aleron75/magemonolog.git"
-        },
-        ...
-      ],
-      ...
-      "extra": {
-        "magento-root-dir": "<magento_installation_dir>/"
-      }
-      ...
-    }
-
-Then run the following command from the directory where your `composer.json`
-file is contained:
-
-    $ php composer.phar install
+    $ php composer.phar require aleron75/magemonolog:dev-master
 
 or
 
-    $ composer install
+    $ composer require aleron75/magemonolog:dev-master
 
 **Common tasks**
 
