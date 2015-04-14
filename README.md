@@ -146,16 +146,16 @@ You can also use Monolog's Formatters like shown below:
                             <filePermission>null</filePermission>
                             <useLocking>false</useLocking>
                         </params>
-                    <formatter>
-                        <class>LogstashFormatter</class>
-                        <args>
-                            <application_name><![CDATA[MyAppName]]></application_name>
-                            <system_name><![CDATA[]]></system_name>
-                            <extra_prefix><![CDATA[]]></extra_prefix>
-                            <context_prefix><![CDATA[]]></context_prefix>
-                            <version><![CDATA[]]></version>
-                        </args>
-                    </formatter>
+                        <formatter>
+                            <class>LogstashFormatter</class>
+                            <args>
+                                <application_name><![CDATA[MyAppName]]></application_name>
+                                <system_name><![CDATA[]]></system_name>
+                                <extra_prefix><![CDATA[]]></extra_prefix>
+                                <context_prefix><![CDATA[]]></context_prefix>
+                                <version><![CDATA[]]></version>
+                            </args>
+                        </formatter>
                     </StreamHandler>
                 </handlers>
             </magemonolog>
