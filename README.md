@@ -131,8 +131,45 @@ Multiple Log Handlers can be activated at the same time with different log
 filter level; this way, for example, it is possible to log any message into a
 file and only serious errors via e-mail.
 
+You can also use Monolog's Formatters like shown below:
+
+    <config>
+        <default>
+            <magemonolog>
+                <handlers>
+                    <StreamHandler>
+                        <active>1</active>
+                        <params>
+                            <stream>magemonolog.log</stream>
+                            <level>DEBUG</level>
+                            <bubble>true</bubble>
+                            <filePermission>null</filePermission>
+                            <useLocking>false</useLocking>
+                        </params>
+                    <formatter>
+                        <class>LogstashFormatter</class>
+                        <args>
+                            <application_name><![CDATA[MyAppName]]></application_name>
+                            <system_name><![CDATA[]]></system_name>
+                            <extra_prefix><![CDATA[]]></extra_prefix>
+                            <context_prefix><![CDATA[]]></context_prefix>
+                            <version><![CDATA[]]></version>
+                        </args>
+                    </formatter>
+                    </StreamHandler>
+                </handlers>
+            </magemonolog>
+        </default>
+    </config>
+
+The `<args>` tag should contain proper Formatter's contructor arguments. Arguments' tag name is not important, values
+are passed to Formatter's constructor in the exact order the constructor requires them. You should consult Formatter's
+constructor signature to know which are its arguments, their meaning and their order.
+
 Closing words
 -------------
 Any feedback is appreciated.
 
 This extension is published under the [Open Software License (OSL 3.0)](http://opensource.org/licenses/OSL-3.0).
+
+Any contribution or feedback is extremely appreciated.

@@ -52,6 +52,16 @@ class Aleron75_Magemonolog_Model_Logwriter
                 }
 
                 $handlerWrapper = Mage::getModel('aleron75_magemonolog/handlerWrapper_'.$handlerModel, $args);
+
+                if (array_key_exists('formatter', $handlerValues)
+                    && array_key_exists('class', $handlerValues['formatter']))
+                {
+                    $class = '\\Monolog\Formatter\\'.$handlerValues['formatter']['class'];
+                    $args = $handlerValues['formatter']['args'];
+                    $formatter = new $class($args);
+                    $handlerWrapper->setFormatter($formatter);
+                }
+
                 $this->_logger->pushHandler($handlerWrapper->getHandler());
             }
         }

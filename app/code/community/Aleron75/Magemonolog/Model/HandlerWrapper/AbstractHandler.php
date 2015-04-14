@@ -47,4 +47,14 @@ abstract class Aleron75_Magemonolog_Model_HandlerWrapper_AbstractHandler
         return $this->_handler;
     }
 
+    /**
+     * @param \Monolog\Formatter\FormatterInterface $formatter
+     */
+    public function setFormatter(\Monolog\Formatter\FormatterInterface $formatter)
+    {
+        if ($this->_handler) {
+            $this->_handler->setFormatter($formatter);
+        }
+    }
+
 }
