@@ -56,9 +56,8 @@ class Aleron75_Magemonolog_Model_Logwriter
                 if (array_key_exists('formatter', $handlerValues)
                     && array_key_exists('class', $handlerValues['formatter']))
                 {
-                    $class = '\\Monolog\Formatter\\'.$handlerValues['formatter']['class'];
-                    $args = $handlerValues['formatter']['args'];
-                    $formatter = new $class($args);
+                    $class = new ReflectionClass('\\Monolog\Formatter\\'.$handlerValues['formatter']['class']);
+                    $formatter = $class->newInstanceArgs($handlerValues['formatter']['args']);
                     $handlerWrapper->setFormatter($formatter);
                 }
 
