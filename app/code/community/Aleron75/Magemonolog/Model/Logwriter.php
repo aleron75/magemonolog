@@ -49,6 +49,9 @@ class Aleron75_Magemonolog_Model_Logwriter
                 if (array_key_exists('params', $handlerValues))
                 {
                     $args = $handlerValues['params'];
+                    if (!empty($this->_logFile)){
+                        $args['stream'] = array_pop(explode(DS,$this->_logFile));
+                    }
                 }
 
                 $handlerWrapper = Mage::getModel('aleron75_magemonolog/handlerWrapper_'.$handlerModel, $args);
