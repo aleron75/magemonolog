@@ -50,7 +50,8 @@ class Aleron75_Magemonolog_Model_Logwriter
                 {
                     $args = $handlerValues['params'];
                     if (!empty($this->_logFile)){
-                        $args['stream'] = array_pop(explode(DS,$this->_logFile));
+                        $logFileParts = explode(DS,$this->_logFile);
+                        $args['stream'] = array_pop($logFileParts);
                     }
                 }
 
